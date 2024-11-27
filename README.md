@@ -5,6 +5,3 @@ The main Discord bot for DanBot Hosting.
 - **DIBSTER**
   - Email: dibster@danbot.host
   - GitHub: [DEV-DIBSTER](https://github.com/DEV-DIBSTER)
-- **William**
-  - Email: william@danbot.host
-  - GitHub: [WilliamDavidHarrison](https://github.com/WilliamDavidHarrison)
