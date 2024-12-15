@@ -142,7 +142,7 @@ const command: Command = {
                 .setDescription(`You have been banned from **${interaction.guild.name}**!`)
                 .addFields (
                     { name: "Reason", value: reason },
-                    { name: "Appeal here:", value: `${config.main.appealEmail}` }
+                    { name: "Appeal here:", value: `${main.appealEmail}` }
                 )
                 .setTimestamp()
 
