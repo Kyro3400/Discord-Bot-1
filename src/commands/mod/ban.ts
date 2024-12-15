@@ -3,8 +3,7 @@ import ExtendedClient from "../../classes/ExtendedClient";
 import { Attachment, ChatInputCommandInteraction, PermissionFlagsBits, TextChannel } from "discord.js";
 
 import { main as main } from "../../config";
-import { emoji as emojis } from "../../config";
-
+import { emojis as emoji } from "../../config";
 
 const command: Command = {
     name: "ban",
