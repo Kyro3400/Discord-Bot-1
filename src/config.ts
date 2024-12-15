@@ -60,7 +60,7 @@ const emojis = {
 }
 
 const main = {
-    appealEmail: "dan@danbot.host",
+    appealEmail: "appeal@danbot.host",
     autoCrosspost: [
         "898327108898684938", // #server-status
         "1165422634226434180" // #bot-status
@@ -68,9 +68,8 @@ const main = {
     botAdmins: [
         "137624084572798976", // dan_420
         "757296951925538856", // devdibster
-        "853158265466257448" // williamharrison
+        "813003040504283156"  // flaringphoenix
     ],
-    botAPI: "bot-api.danbot.host",
     legacyPrefix: "DBHB!",
     logIgnoredChannels: [
         "898041845878247487" // #node-status
