@@ -13,7 +13,7 @@ const keyword: Keyword = {
     \n- Discord Ratelimiters.
     \n- PteroVM\'s or servers attempting to gain root access.
     \n- Whatsapp Bots.
-    \n-Nitro Generators or token grabbers etc.
+    \n- Nitro Generators or token grabbers etc.
     \n\n> ***Anything against Discord Terms of Service is also off limits.***
     `,
     minimumKeywords: 2,
