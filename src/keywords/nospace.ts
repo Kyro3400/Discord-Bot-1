@@ -1,7 +1,7 @@
 import Keyword from "../classes/Keyword";
 
 const keyword: Keyword = {
-    title: "I\'m getting a \"No Space\" error when trying to use the hosting. How do i fix it? I have enough space on my server disk.",
+    title: "I\'m getting a \"No Space\" error when trying to use the hosting. How do i fix it?",
     keywords: ["no", "space", "error", "server", "disk", "fix"],
     requiredKeywords: ["no", "space"],
     response: `When installing a package, it creates a temporary directory for installing on the host server. 
