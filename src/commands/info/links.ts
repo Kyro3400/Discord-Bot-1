@@ -31,15 +31,27 @@ const command: Command = {
 
                     new Discord.ButtonBuilder()
                         .setStyle(Discord.ButtonStyle.Link)
-                        .setEmoji("🟢")
-                        .setLabel("Status")
-                        .setURL("https://uptime.danbot.host"),
+                        .setEmoji("🟩")
+                        .setLabel("Service Status")
+                        .setURL("https://danbot.service"),
 
                     new Discord.ButtonBuilder()
                         .setStyle(Discord.ButtonStyle.Link)
+                        .setEmoji("🟢")
+                        .setLabel("Uptime Status")
+                        .setURL("https://uptime.danbot.host"),
+                         
+                    new Discord.ButtonBuilder()
+                        .setStyle(Discord.ButtonStyle.Link)
                         .setEmoji("🐙")
-                        .setLabel("GitHub")
-                        .setURL("https://github.com/DanBot-Hosting")
+                        .setLabel("Github")
+                        .setURL("https://github.com/DanBot-Hosting"),
+
+                    new Discord.ButtonBuilder()
+                        .setStyle(Discord.ButtonStyle.Link)
+                        .setEmoji("📚")
+                        .setLabel("Documentation")
+                        .setURL("https://docs.danbot.host")
                 )
 
             await interaction.editReply({ components: [buttons] });
