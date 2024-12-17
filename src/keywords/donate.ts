@@ -2,7 +2,7 @@ import Keyword from "../classes/Keyword";
 
 const keyword: Keyword = {
     title: "How do I get donator servers? How do I donate? How do I get better servers?",
-    keywords: ["do", "I", "donate", "servers", "server", "better", "dono node", "paypal"],
+    keywords: ["do", "I", "donate", "servers", "server", "better", "dono-node", "paypal"],
     requiredKeywords: ["donate", "donator", "paypal"],
     response: `You can donate to https://paypal.me/DanBotHosting, the required minimum is 1$, divided by the server price for a premium server.
     \n\n> **CURRENT SERVER PRICE:** \`$0.50\`
