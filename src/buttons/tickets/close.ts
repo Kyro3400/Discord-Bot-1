@@ -142,7 +142,7 @@ const button: Button = {
                         .setColor(client.config_embeds.error)
                         .setDescription(`${emoji.cross} Operation cancelled.`)
 
-                    await interaction.editReply({ embeds: [cancelled], components: [] });
+                    await interaction.editReply({ embeds: [cancelled], components: [] }).catch(() => {});
                 }
             })
         } catch(err) {
