@@ -12,8 +12,7 @@ const keyword: Keyword = {
         $5 - 3 vCPUs, 5GB RAM, 200GB disk
         $6 - 3 vCPUs, 6GB RAM, 200GB disk
         $7 - 4 vCPUs, 7GB RAM, 250GB disk
-        
-        -# Please note, pricing is monthly.`,
+        \n-# Please note, pricing is monthly.`,
     minimumKeywords: 1,
     matchAll: false,
     enabled: true
