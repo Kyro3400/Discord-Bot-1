@@ -30,13 +30,13 @@ export default async function (client: ExtendedClient) {
     }
 
     // Update stats
-    await boosts.setName(`Boosts » ${stats.boosts}`);
-    await bots.setName(`Bots » ${stats.bots}`);
-    await clients.setName(`Clients » ${stats.clients}`);
-    await members.setName(`Members » ${stats.members}`);
-    await servers.setName(`Servers » ${stats.servers}`);
-    await staff.setName(`Staff » ${stats.staff}`);
-    await tickets.setName(`Tickets » ${stats.tickets}`);
+    await boosts.setName(`Boosts » ${stats.boosts}`).catch((Error) => {});
+    await bots.setName(`Bots » ${stats.bots}`).catch((Error) => {});
+    await clients.setName(`Clients » ${stats.clients}`).catch((Error) => {});
+    await members.setName(`Members » ${stats.members}`).catch((Error) => {});
+    await servers.setName(`Servers » ${stats.servers}`).catch((Error) => {});
+    await staff.setName(`Staff » ${stats.staff}`).catch((Error) => {});
+    await tickets.setName(`Tickets » ${stats.tickets}`).catch((Error) => {});
 }
 
 async function getUserCount() {
