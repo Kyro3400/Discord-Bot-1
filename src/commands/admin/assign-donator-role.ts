@@ -47,7 +47,7 @@ const command: Command = {
             await i.edit({ embeds: [assigning] });
 
             for(const user of data) {
-                const member = await interaction.guild.members.fetch(user._id).catch(() => null);
+                const member = await interaction.guild.members.fetch(user._id).catch((): null => null);
 
                 if(!member) continue;
 
@@ -58,7 +58,7 @@ const command: Command = {
             }
 
             for(const user of zeroData) {
-                const member = await interaction.guild.members.fetch(user._id).catch(() => null);
+                const member = await interaction.guild.members.fetch(user._id).catch((): null => null);
 
                 if(!member) continue;
 

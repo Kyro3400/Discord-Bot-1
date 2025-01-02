@@ -25,7 +25,7 @@ const command: Command = {
     async execute(interaction: ChatInputCommandInteraction, client: ExtendedClient, Discord: typeof import("discord.js")) {
         try {
             const user = interaction.options.getUser("user");
-            const member = await interaction.guild.members.fetch(user.id).catch(() => null);
+            const member = await interaction.guild.members.fetch(user.id).catch((): null => null);
 
             let banned: boolean | GuildBan = false;
 

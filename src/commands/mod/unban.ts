@@ -36,7 +36,7 @@ const command: Command = {
             const user = interaction.options.getUser("user");
             const reason = interaction.options.get("reason").value as string;
 
-            const banned = await interaction.guild.bans.fetch({ user: user.id }).catch(() => null) || false;
+            const banned = await interaction.guild.bans.fetch({ user: user.id }).catch((): null => null) || false;
 
             if(!banned) {
                 const error = new Discord.EmbedBuilder()
