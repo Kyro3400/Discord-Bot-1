@@ -36,9 +36,6 @@ const event: Event = {
             setInterval(() => {
                 exec("git pull", async (err, stdout) => {
                     if (err) {
-                        if (!err.message.includes('gnutls_handshake() failed')) {
-                            client.logError(err);
-                        }
                         return;
                     }
             
