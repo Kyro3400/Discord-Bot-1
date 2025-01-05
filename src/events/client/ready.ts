@@ -35,20 +35,25 @@ const event: Event = {
             // Pull from GitHub every 30 seconds
             setInterval(() => {
                 exec("git pull", async (err, stdout) => {
-                    if(err) return client.logError(err);
-
-                    if(stdout.includes("Already up to date.")) return;
-
+                    if (err) {
+                        if (!err.message.includes('gnutls_handshake() failed')) {
+                            client.logError(err);
+                        }
+                        return;
+                    }
+            
+                    if (stdout.includes("Already up to date.")) return;
+            
                     const embed = new EmbedBuilder()
                         .setColor(client.config_embeds.default)
                         .setTitle("Automatic GitHub Pull")
                         .setDescription(`\`\`\`\n${cap(stdout, 4000)}\`\`\``)
-                        .setTimestamp()
-
+                        .setTimestamp();
+            
                     await githubChannel.send({ embeds: [embed] });
-
+            
                     process.exit();
-                })
+                });
             }, 30000);
         } catch(err) {
             client.logError(err);
