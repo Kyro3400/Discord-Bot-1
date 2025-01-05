@@ -1,5 +1,5 @@
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ButtonInteraction } from "discord.js";
+import { ButtonInteraction, MessageFlags } from "discord.js";
 
 import Button from "../../classes/Button";
 
@@ -23,7 +23,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                     if(userRoles[role]) hasRoles.push(role);
                 }
 
-                if(requiredRoles.length !== hasRoles.length) return await interaction.reply({ embeds: [noPermissionButton], ephemeral: true });
+                if(requiredRoles.length !== hasRoles.length) return await interaction.reply({ embeds: [noPermissionButton], flags: MessageFlags.Ephemeral });
             }
 
             try {
@@ -38,7 +38,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} There was an error while executing that button!`)
 
-                await interaction.reply({ embeds: [error], ephemeral: true });
+                await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
             }
 
             return;
@@ -55,7 +55,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                         if(userRoles[role]) hasRoles.push(role);
                     }
 
-                    if(requiredRoles.length !== hasRoles.length) return await interaction.reply({ embeds: [noPermissionButton], ephemeral: true });
+                    if(requiredRoles.length !== hasRoles.length) return await interaction.reply({ embeds: [noPermissionButton], flags: MessageFlags.Ephemeral });
                 }
 
                 try {
@@ -70,7 +70,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                         .setColor(client.config_embeds.error)
                         .setDescription(`${emoji.cross} There was an error while executing that button!`)
 
-                    await interaction.reply({ embeds: [error], ephemeral: true });
+                    await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 }
 
                 break;

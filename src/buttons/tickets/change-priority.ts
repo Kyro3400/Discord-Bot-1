@@ -1,6 +1,6 @@
 import Button from "../../classes/Button";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ButtonInteraction, Interaction, TextChannel } from "discord.js";
+import { ButtonInteraction, Interaction, MessageFlags, TextChannel } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 
@@ -54,7 +54,7 @@ const button: Button = {
 
             const row: any = new Discord.ActionRowBuilder().addComponents(menu);
 
-            await interaction.reply({ components: [row], ephemeral: true });
+            await interaction.reply({ components: [row], flags: MessageFlags.Ephemeral });
 
             let finished = false;
 

@@ -1,6 +1,6 @@
 import Button from "../../classes/Button";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ButtonInteraction, TextChannel } from "discord.js";
+import { ButtonInteraction, MessageFlags, TextChannel } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 import getRoles from "../../functions/roles/get";
@@ -20,7 +20,7 @@ const button: Button = {
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} You cannot close another user's ticket!`)
 
-                await interaction.reply({ embeds: [error], ephemeral: true });
+                await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 return;
             }
 
@@ -42,7 +42,7 @@ const button: Button = {
                         .setEmoji(emoji.dbh_cross)
                 )
 
-            const confirmMsg = await interaction.reply({ embeds: [confirmation], components: [row], ephemeral: true });
+            const confirmMsg = await interaction.reply({ embeds: [confirmation], components: [row], flags: MessageFlags.Ephemeral });
 
             const filter = (i: any) => i.user.id === interaction.user.id && i.customId.startsWith("confirm-") || i.customId.startsWith("cancel-");
 

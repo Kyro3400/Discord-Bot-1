@@ -1,6 +1,6 @@
 import Button from "../../classes/Button";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ButtonInteraction } from "discord.js";
+import { ButtonInteraction, MessageFlags } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 
@@ -18,7 +18,7 @@ const button: Button = {
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} Role not found!`)
 
-                await interaction.reply({ embeds: [error], ephemeral: true });
+                await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 return;
             }
 
@@ -26,7 +26,7 @@ const button: Button = {
                 .setColor(client.config_embeds.default)
                 .setDescription(`${emoji.ping} Fetching members...`)
 
-            await interaction.reply({ embeds: [fetching], ephemeral: true });
+            await interaction.reply({ embeds: [fetching], flags: MessageFlags.Ephemeral });
 
             const members = role.members.sort((a, b) => Number(a.id) - Number(b.id)).map(m => `${m.user.tag} (${m.user.id})`);
 

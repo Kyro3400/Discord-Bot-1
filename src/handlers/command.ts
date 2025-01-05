@@ -1,5 +1,5 @@
 import ExtendedClient from "../classes/ExtendedClient";
-import { ChatInputCommandInteraction } from "discord.js";
+import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
 
 import fs from "fs";
 import { getDirs } from "../util/functions";
@@ -45,7 +45,7 @@ export = async (client: ExtendedClient) => {
             )
             .setTimestamp()
 
-        interaction.deferred || interaction.replied ? await interaction.editReply({ embeds: [error] }) : await interaction.reply({ embeds: [error], ephemeral: true });
+        interaction.deferred || interaction.replied ? await interaction.editReply({ embeds: [error] }) : await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
     }
 
     require("dotenv").config();

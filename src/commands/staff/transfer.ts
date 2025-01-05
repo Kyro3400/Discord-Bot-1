@@ -1,6 +1,6 @@
 import Command from "../../classes/Command";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ChatInputCommandInteraction, TextChannel } from "discord.js";
+import { ChatInputCommandInteraction, MessageFlags, TextChannel } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 import formatCurrency from "../../util/formatCurrency";
@@ -140,7 +140,7 @@ const command: Command = {
                         .setColor(client.config_embeds.error)
                         .setDescription(`${emoji.cross} This button is not for you!`)
 
-                    c.reply({ embeds: [error], ephemeral: true });
+                    c.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                     return;
                 }
 

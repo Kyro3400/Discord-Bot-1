@@ -1,6 +1,6 @@
 import Button from "../../classes/Button";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ButtonInteraction } from "discord.js";
+import { ButtonInteraction, MessageFlags } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 
@@ -17,7 +17,7 @@ const button: Button = {
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} You cannot fix another user's credit amount!`)
 
-                await interaction.reply({ embeds: [error], ephemeral: true });
+                await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 return;
             }
 
@@ -29,7 +29,7 @@ const button: Button = {
                     .setColor(client.config_embeds.default)
                     .setDescription(`${emoji.tick} Your credit amount is correct!`)
 
-                await interaction.reply({ embeds: [error], ephemeral: true });
+                await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 return;
             }
 
@@ -37,7 +37,7 @@ const button: Button = {
                 .setColor(client.config_embeds.default)
                 .setDescription(`${emoji.tick} Your credit amount has been fixed!`)
 
-            await interaction.reply({ embeds: [fixed], ephemeral: true });
+            await interaction.reply({ embeds: [fixed], flags: MessageFlags.Ephemeral });
         } catch(err) {
             client.logButtonError(err, interaction);
         }

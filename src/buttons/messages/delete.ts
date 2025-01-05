@@ -1,6 +1,6 @@
 import Button from "../../classes/Button";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ButtonInteraction } from "discord.js";
+import { ButtonInteraction, MessageFlags } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 import getRoles from "../../functions/roles/get";
@@ -20,7 +20,7 @@ const button: Button = {
                     .setColor(client.config_embeds.default)
                     .setDescription(`${emoji.cross} You can't delete someone else's message.`)
 
-                await interaction.reply({ embeds: [error], ephemeral: true });
+                await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 return;
             }
 

@@ -1,5 +1,5 @@
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ChatInputCommandInteraction } from "discord.js";
+import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
 
 import Command from "../../classes/Command";
 
@@ -26,7 +26,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                 if(userRoles[role]) hasRoles.push(role);
             }
 
-            if(requiredRoles.length !== hasRoles.length) return await interaction.reply({ embeds: [noPermissionCommand], ephemeral: true });
+            if(requiredRoles.length !== hasRoles.length) return await interaction.reply({ embeds: [noPermissionCommand], flags: MessageFlags.Ephemeral });
         }
 
         if(!command.enabled) {
@@ -34,7 +34,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                 .setColor(client.config_embeds.error)
                 .setDescription(`${emoji.cross} This command has been disabled!`)
 
-            await interaction.reply({ embeds: [disabled], ephemeral: true });
+            await interaction.reply({ embeds: [disabled], flags: MessageFlags.Ephemeral });
             return;
         }
 
@@ -54,12 +54,12 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                     .setColor(client.config_embeds.error)
                     .setDescription(`I am missing these permissions: \`${invalidPerms.join("\`, \`")}\``)
 
-                await interaction.reply({ embeds: [permError], ephemeral: true });
+                await interaction.reply({ embeds: [permError], flags: MessageFlags.Ephemeral });
                 return;
             }
         }
 
-        command.deferReply ? command.ephemeral ? await interaction.deferReply({ ephemeral: true }) : await interaction.deferReply() : null;
+        command.deferReply ? command.ephemeral ? await interaction.deferReply({ flags: MessageFlags.Ephemeral }) : await interaction.deferReply() : null;
 
         if(userRoles.owner || userRoles.botAdmin) {
             // Log interaction to console
@@ -75,7 +75,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} There was an error while executing that command!`)
 
-                command.deferReply ? await interaction.editReply({ embeds: [error] }) : await interaction.reply({ embeds: [error], ephemeral: true });
+                command.deferReply ? await interaction.editReply({ embeds: [error] }) : await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
                 return;
             }
         }
@@ -96,7 +96,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                     .setColor(client.config_embeds.error)
                     .setDescription(`⏰ Please wait ${timeLeft} second${timeLeft === "1" ? "" : "s"} before running that command again!`)
 
-                command.deferReply ? await interaction.editReply({ embeds: [cooldown] }) : await interaction.reply({ embeds: [cooldown], ephemeral: true });
+                command.deferReply ? await interaction.editReply({ embeds: [cooldown] }) : await interaction.reply({ embeds: [cooldown], flags: MessageFlags.Ephemeral });
                 return;
             }
         }
@@ -119,7 +119,7 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
                 .setColor(client.config_embeds.error)
                 .setDescription(`${emoji.cross} There was an error while executing that command!`)
 
-            command.deferReply ? await interaction.editReply({ embeds: [error] }) : await interaction.reply({ embeds: [error], ephemeral: true });
+            command.deferReply ? await interaction.editReply({ embeds: [error] }) : await interaction.reply({ embeds: [error], flags: MessageFlags.Ephemeral });
         }
     } catch(err) {
         client.logError(err);
