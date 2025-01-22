@@ -1,6 +1,6 @@
 import Command from "../../classes/Command";
 import ExtendedClient from "../../classes/ExtendedClient";
-import { ChatInputCommandInteraction } from "discord.js";
+import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
 
 import { emojis as emoji } from "../../config";
 
@@ -49,7 +49,7 @@ const command: Command = {
                     { name: "API Latency", value: apiLatencyValue, inline: true }
                 )
 
-            await interaction.reply({ embeds: [ping], ephemeral: true });
+            await interaction.reply({ embeds: [ping], flags: MessageFlags.Ephemeral });
         } catch(err) {
             client.logCommandError(err, interaction, Discord);
         }
