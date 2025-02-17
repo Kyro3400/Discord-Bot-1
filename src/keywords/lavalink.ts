@@ -6,7 +6,7 @@ const keyword: Keyword = {
     requiredKeywords: ["support", "lavalink"],
     response: `We do support creating Lavalink servers, however the RAM usage **must be limited to 2GB**.
     \nInstead, it is recommended to use our public Lavalink which has no restrictions:
-    \n\n**IP**: \`63.141.232.244\`\n**Port**: \`1221\`\n**Password**: \`DBH\``,
+    \n\n**IP**: \`107.150.61.164\`\n**Port**: \`1221\`\n**Password**: \`DBH\``,
     minimumKeywords: 3,
     matchAll: false,
     enabled: true
