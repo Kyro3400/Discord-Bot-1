@@ -72,11 +72,6 @@ const command: Command = {
                 {
                     name: "Server Issue - I am having an issue with my server. (crashes, errors, etc.)",
                     value: "server-issue"
-                },
-
-                {
-                    name: "VPS - I want to enquire about or purchase a VPS.",
-                    value: "vps"
                 }
             ],
             required: true
@@ -159,7 +154,6 @@ const command: Command = {
             const mediumTickets = interaction.guild.channels.cache.get(client.config_categories.tickets.medium) as CategoryChannel;
             const lowTickets = interaction.guild.channels.cache.get(client.config_categories.tickets.low) as CategoryChannel;
             const unknownTickets = interaction.guild.channels.cache.get(client.config_categories.tickets.unknown) as CategoryChannel;
-            const vpsTickets = interaction.guild.channels.cache.get(client.config_categories.tickets.vps) as CategoryChannel;
 
             // Check if the user has an open ticket
             const openTicket = interaction.guild.channels.cache.find((c: TextChannel) => c.type === 0 && c.name.startsWith("🎫╏") && c.topic === `${user.id}`);
@@ -176,7 +170,6 @@ const command: Command = {
             const highPriority = ["missing-files", "security-issue"];
             const mediumPriority = ["account-issue", "bot-issue", "bug-report", "donation", "donation-issue", "server-issue"];
             const lowPriority = ["feature-request", "proxy", "question"];
-            const vpsPriority = ["vps"];
 
             const reasons: any = {
                 "account-issue": "🔑 Account Issue",
@@ -190,8 +183,7 @@ const command: Command = {
                 "proxy": "🔗 Proxy",
                 "question": "🆘 Question",
                 "security-issue": "🔒 Security Issue",
-                "server-issue": "🖥️ Server Issue",
-                "vps": "💻 VPS"
+                "server-issue": "🖥️ Server Issue"
             }
 
             const requiredInfo: any = {
@@ -216,8 +208,6 @@ const command: Command = {
                 priority = mediumTickets.id;
             } else if(lowPriority.includes(reason)) {
                 priority = lowTickets.id;
-            } else if(vpsPriority.includes(reason)) {
-                priority = vpsTickets.id;
             } else {
                 priority = unknownTickets.id;
             }
