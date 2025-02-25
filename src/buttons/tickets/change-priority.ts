@@ -43,15 +43,6 @@ const button: Button = {
                 )
             }
 
-            if(currentPriority !== client.config_categories.tickets.vps) {
-                menu.addOptions (
-                    new Discord.StringSelectMenuOptionBuilder()
-                        .setEmoji("🔵")
-                        .setLabel("VPS")
-                        .setValue("vps")
-                )
-            }
-
             const row: any = new Discord.ActionRowBuilder().addComponents(menu);
 
             await interaction.reply({ components: [row], flags: MessageFlags.Ephemeral });
@@ -68,8 +59,7 @@ const button: Button = {
                         high: client.config_categories.tickets.high,
                         medium: client.config_categories.tickets.medium,
                         low: client.config_categories.tickets.low,
-                        unknown: client.config_categories.tickets.unknown,
-                        vps: client.config_categories.tickets.vps
+                        unknown: client.config_categories.tickets.unknown
                     }
 
                     const category = categories[priority];
