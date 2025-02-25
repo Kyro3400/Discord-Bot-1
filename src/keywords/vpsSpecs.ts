@@ -4,7 +4,9 @@ const keyword: Keyword = {
     title: "What is the price for VPS?",
     keywords: ["price", "vps"],
     requiredKeywords: ["vps"],
-    response: `Pricing is as follows:
+    response: `Pricing can be found as well, on our [billing panel](https://billing.danbot.host)
+    
+    Pricing is as follows:
         $1 - 1 vCPU, 1GB RAM, 100GB disk
         $2 - 1 vCPU, 2GB RAM, 100GB disk
         $3 - 2 vCPUs, 3GB RAM, 150GB disk
