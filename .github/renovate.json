@@ -10,10 +10,10 @@
         {
             "matchPackagePatterns": ["*"],
             "matchUpdateTypes": ["major"],
-            "separateMajorMinor": true,
-            "separateMultipleMajor": true,
-            "assigneesFromCodeOwners": true,
-            "groupName": null
+            "separatePatchReleases": false,
+            "separateMinorReleases": false,
+            "separateMajorReleases": true,
+            "assigneesFromCodeOwners": true
         }
     ]
 }
