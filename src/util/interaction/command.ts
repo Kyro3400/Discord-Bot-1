@@ -59,7 +59,24 @@ export = async (client: ExtendedClient, Discord: typeof import("discord.js"), in
             }
         }
 
-        command.deferReply ? command.ephemeral ? await interaction.deferReply({ flags: MessageFlags.Ephemeral }) : await interaction.deferReply() : null;
+        // TODO: Check if this is a permanent fix. Handles timeout errors.
+        if(command.deferReply) {
+            try {                
+                if(command.ephemeral) {
+                    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+                } else {
+                    await interaction.deferReply();
+                }
+            } catch(Error) {
+                // Only handle the Unknown Interaction error silently.
+                if(Error.code === 10062) {
+                    const responseTime = Date.now() - interaction.createdTimestamp;
+                    console.log(`[Command] Interaction expired before deferReply: ${interaction.commandName} (${interaction.id}), took ${responseTime}ms since creation.`);
+                    return;
+                }
+                client.logError(Error);
+            }
+        }
 
         if(userRoles.owner || userRoles.botAdmin) {
             // Log interaction to console
