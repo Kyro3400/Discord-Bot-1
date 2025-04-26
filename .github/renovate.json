@@ -1,4 +1,6 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "rangeStrategy": "bump",
   "separateMajorMinor": true,
   "separateMinorPatch": false,
   "packageRules": [
@@ -7,8 +9,7 @@
       "groupSlug": "all-minor-patch",
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
-      "assigneesFromCodeOwners": true,
-      "rangeStrategy": "bump"
+      "assigneesFromCodeOwners": true
     },
     {
       "matchPackagePatterns": ["*"],
