@@ -10,15 +10,15 @@
   "author": "DanBot Hosting",
   "license": "MIT",
   "dependencies": {
-    "@sentry/node": "^9.17.0",
+    "@sentry/node": "^9.19.0",
     "axios": "^1.9.0",
     "discord.js": "^14.19.3",
     "dotenv": "^16.5.0",
-    "mongoose": "^8.14.2"
+    "mongoose": "^8.14.3"
   },
   "devDependencies": {
-    "@sentry/types": "^9.17.0",
-    "@types/node": "^22.15.17",
+    "@sentry/types": "^9.18.0",
+    "@types/node": "^22.15.18",
     "typescript": "^5.8.3"
   }
 }
