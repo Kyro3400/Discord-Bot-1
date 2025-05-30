@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@sentry/types": "^9.23.0",
-    "@types/node": "^22.15.25",
+    "@types/node": "^22.15.26",
     "typescript": "^5.8.3"
   }
 }
