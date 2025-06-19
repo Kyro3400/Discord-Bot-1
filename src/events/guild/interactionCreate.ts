@@ -50,10 +50,12 @@ const event: Event = {
 
             // Autocomplete handler
             if(interaction.isAutocomplete()) return await autocompleteHandler(client, interaction);
-            // Button handler
+
+            // Button Handler:
             if(interaction.isButton()) return await buttonHandler(client, Discord, interaction);
-            // Command handler
-            if(interaction.isCommand() && !interaction.isMessageContextMenuCommand() && !interaction.isUserContextMenuCommand()) return await commandHandler(client, Discord, interaction);
+
+            // Command Handler:
+            if(interaction.isChatInputCommand()) return await commandHandler(client, Discord, interaction);
         } catch(err) {
             client.logError(err);
         }
