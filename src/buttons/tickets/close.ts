@@ -42,7 +42,7 @@ const button: Button = {
                         .setEmoji(emoji.dbh_cross)
                 )
 
-            const confirmMsg = await interaction.reply({ embeds: [confirmation], components: [row], flags: MessageFlags.Ephemeral });
+            const confirmMsg = await interaction.reply({ embeds: [confirmation], components: [row], flags: MessageFlags.Ephemeral }).catch(() => {});
 
             const filter = (i: any) => i.user.id === interaction.user.id && i.customId.startsWith("confirm-") || i.customId.startsWith("cancel-");
 
@@ -56,7 +56,7 @@ const button: Button = {
                         .setColor(client.config_embeds.default)
                         .setDescription(`${emoji.ping} Closing ticket...`)
 
-                    await confirmMsg.edit({ embeds: [closing], components: [] });
+                    if (confirmMsg) await confirmMsg.edit({ embeds: [closing], components: [] });
 
                     const ticketAuthor = await client.users.fetch(user);
 
@@ -125,7 +125,7 @@ const button: Button = {
                         .setColor(client.config_embeds.error)
                         .setDescription(`${emoji.cross} Operation cancelled!`)
 
-                    await confirmMsg.edit({ embeds: [cancelled], components: [] });
+                    if (confirmMsg) await confirmMsg.edit({ embeds: [cancelled], components: [] });
                     return;
                 }
             })
