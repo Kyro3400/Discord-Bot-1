@@ -1,5 +1,5 @@
 import ExtendedClient from "../classes/ExtendedClient";
-import { ButtonInteraction, MessageFlags } from "discord.js";
+import { ButtonInteraction, MessageFlags, EmbedBuilder } from "discord.js";
 
 import fs from "fs";
 import { getDirs } from "../util/functions";
@@ -36,7 +36,7 @@ export = async (client: ExtendedClient) => {
         const id = client.sentry.captureException(err);
         console.error(err);
 
-        const error = new Discord.EmbedBuilder()
+        const error = new EmbedBuilder()
             .setColor(client.config_embeds.error)
             .setTitle("💥 An error occurred")
             .setDescription(`\`\`\`${err.message}\`\`\``)
