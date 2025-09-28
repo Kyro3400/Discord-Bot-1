@@ -10,7 +10,7 @@ import globalCommands from "../../scripts/global-commands";
 import vcStats from "../../util/vcStats";
 
 const event: Event = {
-    name: "ready",
+    name: "clientReady",
     once: true,
     async execute(client: ExtendedClient) {
         try {
