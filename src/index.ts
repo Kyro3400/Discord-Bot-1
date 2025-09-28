@@ -36,6 +36,10 @@ const client = new ExtendedClient({
 // Error Handling
 process.on("unhandledRejection", (err: Error) => Sentry.captureException(err));
 
+// Connect to Database
+import database from "./util/database";
+database();
+
 // Configs
 client.config_categories = config.categories;
 client.config_channels = config.channels;
