@@ -94,7 +94,7 @@ const button: Button = {
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} Operation cancelled.`)
 
-                if(!finished) await interaction.editReply({ embeds: [expired], components: [] });
+                if(!finished) await interaction.editReply({ embeds: [expired], components: [] }).catch((Error) => {});
             }, 30 * 1000);
         } catch(err) {
             client.logButtonError(err, interaction);
