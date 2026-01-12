@@ -2,9 +2,9 @@ import { ColorResolvable } from "discord.js";
 
 const categories = {
     tickets: {
-        high: "1160713638743658577",
-        medium: "1160713549685989406",
-        low: "1160710296986460171",
+        high: "1160716485065445406",
+        medium: "1160716485065445406",
+        low: "1160716485065445406",
         unknown: "1160716485065445406"
     }
 }
