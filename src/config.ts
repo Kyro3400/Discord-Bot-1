@@ -59,7 +59,7 @@ const emojis = {
 }
 
 const main = {
-    appealEmail: "appeal@danbot.host",
+    appealEmail: "appeals@danbot.host",
     autoCrosspost: [
         "898327108898684938", // #server-status
         "1165422634226434180" // #bot-status
