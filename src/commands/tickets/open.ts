@@ -15,64 +15,68 @@ const command: Command = {
             description: "The reason for opening the ticket.",
             choices: [
                 {
-                    name: "Account Issue - I need help with my account. (2FA lockout, username change, account deletion, etc.)",
-                    value: "account-issue"
-                },
-
-                {
-                    name: "Bot Issue - I need help with the bot. (buttons and commands not working, etc.)",
-                    value: "bot-issue"
-                },
-
-                {
-                    name: "Bug Report - I found a bug in the bot or website.",
-                    value: "bug-report"
-                },
-
-                {
-                    name: "Donation - I need my donation processed or I have a question about donating.",
-                    value: "donation"
-                },
-
-                {
-                    name: "Donation Issue - I have an issue with my donation. (questions, refunds, chargebacks, etc.)",
-                    value: "donation-issue"
-                },
-
-                {
-                    name: "Feature Request - I have a suggestion.",
-                    value: "feature-request"
-                },
-
-                {
-                    name: "Missing Files - I am missing files from my server.",
-                    value: "missing-files"
-                },
-
-                {
-                    name: "Other - I need help with something else.",
-                    value: "other"
-                },
-
-                {
-                    name: "Proxy - I need help to unproxy a domain name from my server.",
-                    value: "proxy"
-                },
-
-                {
-                    name: "Question - I have a question.",
-                    value: "question"
-                },
-
-                {
-                    name: "Security Issue - I found a security issue with the bot or website. (vulnerabilities, exploits, etc.)",
-                    value: "security-issue"
-                },
-
-                {
-                    name: "Server Issue - I am having an issue with my server. (crashes, errors, etc.)",
-                    value: "server-issue"
+                    name: "Server Files - I am requesting server files per announcement.",
+                    value: "server-files"
                 }
+                // {
+                //     name: "Account Issue - I need help with my account. (2FA lockout, username change, account deletion, etc.)",
+                //     value: "account-issue"
+                // },
+
+                // {
+                //     name: "Bot Issue - I need help with the bot. (buttons and commands not working, etc.)",
+                //     value: "bot-issue"
+                // },
+
+                // {
+                //     name: "Bug Report - I found a bug in the bot or website.",
+                //     value: "bug-report"
+                // },
+
+                // {
+                //     name: "Donation - I need my donation processed or I have a question about donating.",
+                //     value: "donation"
+                // },
+
+                // {
+                //     name: "Donation Issue - I have an issue with my donation. (questions, refunds, chargebacks, etc.)",
+                //     value: "donation-issue"
+                // },
+
+                // {
+                //     name: "Feature Request - I have a suggestion.",
+                //     value: "feature-request"
+                // },
+
+                // {
+                //     name: "Missing Files - I am missing files from my server.",
+                //     value: "missing-files"
+                // },
+
+                // {
+                //     name: "Other - I need help with something else.",
+                //     value: "other"
+                // },
+
+                // {
+                //     name: "Proxy - I need help to unproxy a domain name from my server.",
+                //     value: "proxy"
+                // },
+
+                // {
+                //     name: "Question - I have a question.",
+                //     value: "question"
+                // },
+
+                // {
+                //     name: "Security Issue - I found a security issue with the bot or website. (vulnerabilities, exploits, etc.)",
+                //     value: "security-issue"
+                // },
+
+                // {
+                //     name: "Server Issue - I am having an issue with my server. (crashes, errors, etc.)",
+                //     value: "server-issue"
+                // }
             ],
             required: true
         },
@@ -169,7 +173,7 @@ const command: Command = {
 
             const highPriority = ["missing-files", "security-issue"];
             const mediumPriority = ["account-issue", "bot-issue", "bug-report", "donation", "donation-issue", "server-issue"];
-            const lowPriority = ["feature-request", "proxy", "question"];
+            const lowPriority = ["feature-request", "proxy", "question", "server-files"];
 
             const reasons: any = {
                 "account-issue": "🔑 Account Issue",
@@ -183,7 +187,8 @@ const command: Command = {
                 "proxy": "🔗 Proxy",
                 "question": "🆘 Question",
                 "security-issue": "🔒 Security Issue",
-                "server-issue": "🖥️ Server Issue"
+                "server-issue": "🖥️ Server Issue",
+                "server-files": "🗄️ Server Files"
             }
 
             const requiredInfo: any = {
@@ -197,7 +202,8 @@ const command: Command = {
                 "proxy": "🪪 Server ID\n🗄️ Server Address\n🌐 Domain Name (e.g. example.com, subdomain.example.com)\n🔗 The proxy that the domain name is linked to",
                 "question": "❓ What is your question?\nℹ️ Any other information you think may be useful",
                 "security-issue": "❓ What the issue is\n🔄️ How to reproduce the issue\nℹ️ Any other information you think may be useful",
-                "server-issue": "🗄️ Node\n🪪 Server ID\n💥 The problem"
+                "server-issue": "🗄️ Node\n🪪 Server ID\n💥 The problem",
+                "server-files": "🗄️ Node\n🪪 Server UUID\n📋 What servers you need files from. They will be provided in zipped files."
             }
 
             let priority = unknownTickets.id;
