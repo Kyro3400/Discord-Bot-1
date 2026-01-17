@@ -141,7 +141,8 @@ const command: Command = {
                 .setDescription(`You have been banned from **${interaction.guild.name}**!`)
                 .addFields (
                     { name: "Reason", value: reason },
-                    { name: "Appeal here:", value: `${main.appealEmail}` }
+                    { name: "Appeal here:", value: `${main.appealEmail}` },
+                    { name: "Appeal Information:", value: "When appealing, please provide as much information as possible regarding the ban. This includes Discord ID, Pterodactyl Email, etc." }
                 )
                 .setTimestamp()
 
