@@ -142,7 +142,7 @@ const command: Command = {
                 .addFields (
                     { name: "Reason", value: reason },
                     { name: "Appeal here:", value: `${main.appealEmail}` },
-                    { name: "Appeal Information:", value: "When appealing, please provide as much information as possible regarding the ban. This includes Discord ID, Pterodactyl Email, etc." }
+                    { name: "Appeal Guide:", value: "When appealing, [please refer to this guide on how to appeal](https://docs.danbot.host/appealing-a-ban/)." }
                 )
                 .setTimestamp()
 
