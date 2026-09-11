@@ -5,6 +5,8 @@ import { Attachment, ChatInputCommandInteraction, PermissionFlagsBits, TextChann
 import { main as main } from "../../config";
 import { emojis as emoji } from "../../config";
 
+import { sendStaffProofReport } from "../../util/staffProofReport";
+
 const command: Command = {
     name: "ban",
     description: "Ban a user.",
@@ -193,6 +195,13 @@ const command: Command = {
                 .setTimestamp()
 
             await logChannel.send({ embeds: [log], files: attachment ? [attachment] : [] });
+
+            await sendStaffProofReport(client, {
+                userId: user.id,
+                punishment: "Ban",
+                length: "Permanent",
+                proof
+            });
         } catch(err) {
             client.logCommandError(err, interaction, Discord);
         }
