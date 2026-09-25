@@ -4,7 +4,22 @@ import * as Sentry from "@sentry/node";
 
 Sentry.init({
     dsn: process.env.sentry_dsn,
-    tracesSampleRate: 1.0
+    tracesSampleRate: 1.0,
+    // Keep the SDK v10 default (sendDefaultPii unset) data collection behaviour
+    dataCollection: {
+        userInfo: false,
+        cookies: false,
+        httpHeaders: {
+            request: { deny: ["forwarded", "-ip", "remote-", "via", "-user"] },
+            response: { deny: ["forwarded", "-ip", "remote-", "via", "-user"] }
+        },
+        httpBodies: [],
+        urlQueryParams: { deny: ["forwarded", "-ip", "remote-", "via", "-user"] },
+        genAI: { inputs: false, outputs: false },
+        databaseQueryData: false,
+        graphQL: { document: false, variables: false },
+        frameContextLines: 7
+    }
 })
 
 import Discord from "discord.js";
